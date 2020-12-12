@@ -1,11 +1,11 @@
 # Consul_Multi_Node_Cluster
 Consul Multi Node Service Mesh using Macbook, Raspberry Pi and Windows Laptop
 
-I wanted to setup a Consul cluster with Service Mesh and KV store. Since we are stuck @ home, ended up bringing up a Consul cluster with nodes scatterred in my home LAN/WLAN.
+I wanted to setup a Consul cluster to understand Service Mesh and KV store. Since we are stuck @ home, ended up bringing up a Consul cluster with nodes scatterred in my home LAN/WLAN.
 
 Windows PC --> Consul Server </br>
 MBP --> Consul Client 1. Hosting DownStream Service</br> 
-Raspi --> Consul Client 2. Hostin UpStream Service</br> 
+Raspberry Pi --> Consul Client 2. Hosting UpStream Service</br> 
 
 Sidecar Proxy : Consul built-in </br> 
 Consul Version: Consul v1.9.0 </br> 
@@ -16,7 +16,7 @@ Consul Version: Consul v1.9.0 </br>
 
 Windows PC --> 192.168.128.19 </br>
 MBP --> 192.168.128.9 </br> 
-Raspi --> 192.168.128.28 </br> 
+Raspberry Pi --> 192.168.128.28 </br> 
 
 Credits : Thanks to [Consul tutorials](https://learn.hashicorp.com/consul) and to many people who posted articles on Consul bringup. :+1:
 
@@ -42,7 +42,9 @@ File_Name:dboard.json </br>
 
 > consul join 192.168.128.19
 
-#### Sample Downstream Service
+#### Downstream Service
+
+Just used CURL to pull and use data from Upstream Service running on Pi </br> 
 
 > curl http://localhost:9001  
 
@@ -50,7 +52,7 @@ File_Name:dboard.json </br>
 
 > consul connect proxy -sidecar-for dashboard
 
-## Raspi
+## Raspberry Pi
 
 #### Start up Consul Client
 
@@ -63,7 +65,7 @@ File_Name:time_svc_web.json </br>
 
 > consul join 192.168.128.19
 
-#### Sample UpStream Service
+#### UpStream Service
 
 A tiny python Flask app was written to return time. </br> 
 File_Name:tell_me_time.py </br> 
@@ -75,7 +77,6 @@ File_Name:tell_me_time.py </br>
 #### Enable intention to connect both service
 
 > consul intention create dashboard time_web
-
 
 # Debugs
 
@@ -131,7 +132,7 @@ consul.			0	IN	SOA	ns.consul. hostmaster.consul. 1607736748 3600 600 86400 0</br
 
 ## Ping to Check Services 
 
-DNS might not resolve. Link to enable [DNS forwarding:] (https://learn.hashicorp.com/tutorials/consul/dns-forwarding)
+DNS won't resolve until we enable [DNS forwarding] (https://learn.hashicorp.com/tutorials/consul/dns-forwarding)
 
 > ping time_web.service.consul  </br> 
 PING time_web.service.consul (192.168.128.28): 56 data bytes  </br>
