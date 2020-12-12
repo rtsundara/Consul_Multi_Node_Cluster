@@ -78,15 +78,23 @@ File_Name:tell_me_time.py </br>
 
 > consul intention create dashboard time_web
 
+#### Use Consul KV Store
+
+> consul kv put employee/employee1/name Jane </br> 
+Success! Data written to: employee/employee1/name </br> 
+
+> $>consul kv get employee/employee1/name </br> 
+Jane </br> 
+
 # Debugs
 
-Consul runs DNS in port 8600 and UI in Port 8500 </br> 
+Consul runs DNS in port 8600 and UI in port 8500 </br> 
 
-## Web UI
+#### Web UI
 
 ![final](final.png)
 
-## consul members
+#### consul members
 
 > $> consul members </br>
 Node    Address              Status  Type    Build  Protocol  DC   Segment </br>
@@ -94,7 +102,7 @@ asgard  192.168.128.19:8301  alive   server  1.9.0  2         dc1  <all> </br>
 c1      192.168.128.9:8301   alive   client  1.9.0  2         dc1  <default> </br> 
 c2      192.168.128.28:8301  alive   client  1.9.0  2         dc1  <default> </br> 
 
-## List registered Services
+#### List registered Services
 
 > $> consul catalog services </br> 
 consul </br> 
@@ -104,7 +112,7 @@ time_web </br>
 time_web-sidecar-proxy </br> 
 
 
-## Use Dig to find Services 
+#### Use Dig to find Services 
 
 > $> dig @127.0.0.1 -p 8600  web.service.consul </br> 
 
@@ -130,32 +138,24 @@ consul.			0	IN	SOA	ns.consul. hostmaster.consul. 1607736748 3600 600 86400 0</br
 ;; MSG SIZE  rcvd: 97</br> 
 
 
-## Ping to Check Services 
+#### Ping to Check Services 
 
 DNS won't resolve until we enable [DNS forwarding] (https://learn.hashicorp.com/tutorials/consul/dns-forwarding)
 
-> ping time_web.service.consul  </br> 
+> $>ping time_web.service.consul  </br> 
 PING time_web.service.consul (192.168.128.28): 56 data bytes  </br>
 64 bytes from 192.168.128.28: icmp_seq=0 ttl=64 time=6.138 m</br>
 --- time_web.service.consul ping statistics ---   </br> 
 2 packets transmitted, 1 packets received, 50.0% packet loss </br> 
 round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms </br> 
 
-## Access Service hosted on Raspi from MBP through Service Mesh
+#### Access Service hosted on Raspi from MBP through Service Mesh
 
-> curl http://localhost:9001
+> $>curl http://localhost:9001
 > time is 1607635269.896242
 
-## Use Consul KV Store
 
-> consul kv put employee/employee1/name Jane </br> 
-Success! Data written to: employee/employee1/name </br> 
+#### Leave Consul Cluster Gracefully
 
-> consul kv get employee/employee1/name </br> 
-Jane </br> 
-
-
-## Leave Consul Cluster Gracefully
-
-> consul leave</br> 
+> $>consul leave</br> 
 Graceful leave complete </br> 
