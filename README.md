@@ -8,16 +8,17 @@ MBP --> Consul Client . Hosted DownStream Service</br>
 Raspi --> Consul Client Hosted UpStream Service</br> 
 
 Sidecar Proxy : Consul built-in
+Consul Version: Consul v1.9.0
 
 ![topology](topology.png)
 
-#IP 
+# IP 
 
 Windows PC --> 192.168.128.19 </br>
 MBP --> 192.168.128.9 </br> 
 Raspi --> 192.168.128.28 </br> 
 
-Credits : Thanks to Consul website (https://www.consul.io/docs/intro) and to many people who posted articles on Consul. +1:
+Credits : Thanks to [Consul tutorials](https://learn.hashicorp.com/consul) and to many people who posted articles on Consul. :+1:
 
 # Steps
 
@@ -32,27 +33,27 @@ config-dir was empty and gave a tmp path for data-dir. In data-dir consul will s
 
 #### Start up Consul Client
 
-consul agent  -node=c3 -bind=192.168.128.9 -data-dir=<path> -config-dir=<path> </br> 
+> consul agent  -node=c3 -bind=192.168.128.9 -data-dir=<path> -config-dir=<path> </br> 
 Config-dir loaded with a SVC definition with Sidecar Proxy configuration. FileName:dboard.json </br> 
 
 #### Join to Cluster
 
-consul join 192.168.128.1
+> consul join 192.168.128.1
 
 #### Sample Downstream Service
 
-Used Curl 
+> Curl 
 
 ## Raspi
 
 #### Start up Consul Client
 
-consul agent  -node=c2 -bind=192.168.128.28 -data-dir=<path> -config-dir=<path> </br> 
+> consul agent  -node=c2 -bind=192.168.128.28 -data-dir=<path> -config-dir=<path> </br> 
 Config-dir loaded with a SVC definition with Sidecar Proxy configuration. FileName:time_svc_web.json </br> 
 
 #### Join to Cluster
 
-consul join 192.168.128.1
+> consul join 192.168.128.1
 
 #### Sample UpStream Service
 
