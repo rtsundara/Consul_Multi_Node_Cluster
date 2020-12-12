@@ -1,0 +1,10 @@
+{
+  "service": {
+    "name": "time_web",
+    "id": "time_web",
+    "port": 5001,
+    "connect": {
+      "sidecar_service": {}
+    }
+  }
+}
