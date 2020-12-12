@@ -43,7 +43,7 @@ Config-dir loaded with a SVC definition with Sidecar Proxy configuration. File_N
 
 #### Sample Downstream Service
 
-> Curl 
+> curl http://localhost:9001  
 
 #### Attach Sidecar Proxy
 
@@ -82,57 +82,58 @@ Consul runs DNS in port 8600 and UI in Port 8500 </br>
 
 > $> consul members </br>
 Node    Address              Status  Type    Build  Protocol  DC   Segment </br>
-asgard  192.168.128.19:8301  alive   server  1.9.0  2         dc1  <all>
-c1      192.168.128.9:8301   alive   client  1.9.0  2         dc1  <default>
-c2      192.168.128.28:8301  alive   client  1.9.0  2         dc1  <default>
+asgard  192.168.128.19:8301  alive   server  1.9.0  2         dc1  <all> </br> 
+c1      192.168.128.9:8301   alive   client  1.9.0  2         dc1  <default> </br> 
+c2      192.168.128.28:8301  alive   client  1.9.0  2         dc1  <default> </br> 
 
 ## List registered Services
 
-> $> consul catalog services
-consul
-dashboard
-dashboard-sidecar-proxy
-time_web
-time_web-sidecar-proxy
+> $> consul catalog services </br> 
+consul </br> 
+dashboard </br> 
+dashboard-sidecar-proxy </br> 
+time_web </br> 
+time_web-sidecar-proxy </br> 
 
 
 ## Use Dig to find Services 
 
-> $> dig @127.0.0.1 -p 8600  web.service.consul
+> $> dig @127.0.0.1 -p 8600  web.service.consul </br> 
 
-; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 8600 web.service.consul
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 34616
-;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-;; WARNING: recursion requested but not available
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 8600 web.service.consul </br> 
+; (1 server found) </br> 
+;; global options: +cmd </br> 
+;; Got answer:</br> 
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 34616</br> 
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1</br> 
+;; WARNING: recursion requested but not available</br> 
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-;; QUESTION SECTION:
-;web.service.consul.		IN	A
+;; OPT PSEUDOSECTION:</br> 
+; EDNS: version: 0, flags:; udp: 4096</br> 
+;; QUESTION SECTION:</br> 
+;web.service.consul.		IN	A</br> 
 
-;; AUTHORITY SECTION:
-consul.			0	IN	SOA	ns.consul. hostmaster.consul. 1607736748 3600 600 86400 0
+;; AUTHORITY SECTION:</br> 
+consul.			0	IN	SOA	ns.consul. hostmaster.consul. 1607736748 3600 600 86400 0</br> 
 
-;; Query time: 7 msec
-;; SERVER: 127.0.0.1#8600(127.0.0.1)
-;; WHEN: Fri Dec 11 17:32:28 PST 2020
-;; MSG SIZE  rcvd: 97
+;; Query time: 7 msec</br> 
+;; SERVER: 127.0.0.1#8600(127.0.0.1)</br> 
+;; WHEN: Fri Dec 11 17:32:28 PST 2020</br> 
+;; MSG SIZE  rcvd: 97</br> 
 
 
 ## Ping to Check Services 
 
 DNS might not resolve. Link to enable [DNS forwarding:] (https://learn.hashicorp.com/tutorials/consul/dns-forwarding)
 
+'''
 > ping time_web.service.consul
 PING time_web.service.consul (192.168.128.28): 56 data bytes
 64 bytes from 192.168.128.28: icmp_seq=0 ttl=64 time=6.138 ms
 --- time_web.service.consul ping statistics ---
 2 packets transmitted, 1 packets received, 50.0% packet loss
 round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms
-
+'''
 
 ## Access Service hosted on Raspi from MBP through Service Mesh
 
@@ -141,16 +142,17 @@ time is 1607635269.896242
 
 ## Use Consul KV Store
 
-> consul kv put employee/employee1/name Jane
-Success! Data written to: employee/employee1/name
+> consul kv put employee/employee1/name Jane </br> 
+Success! Data written to: employee/employee1/name </br> 
 
-> consul kv get employee/employee1/name
-Jane
+> consul kv get employee/employee1/name </br> 
+Jane </br> 
 
 
 ## Leave Consul Cluster Gracefully
-> consul leave
-Graceful leave complete 
+
+> consul leave</br> 
+Graceful leave complete </br> 
 
 ![final](final.png)
 
