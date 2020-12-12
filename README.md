@@ -1,5 +1,5 @@
 # Consul_Multi_Node_Cluster
-Consul Multi Node service mesh using Macbook, Raspberry Pi and Windows Laptop
+Consul Multi Node Service Mesh using Macbook, Raspberry Pi and Windows Laptop
 
 I wanted to learn Consul cluster bringup, service mesh and KV store. Since we are stuck @ home, ended up brining up a Consul cluster with nodes scatterred in my home LAN/WLAN.
 
