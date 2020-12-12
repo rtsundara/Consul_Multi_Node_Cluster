@@ -7,4 +7,6 @@ Windows PC --> Consul Server
 MBP --> Consul Client 1
 Raspi --> Consul Client 2
 
+![topology](topology.png)
+
 Credits : Thanks to Consul website (https://www.consul.io/docs/intro) and to many people who posted articles on Consul.
