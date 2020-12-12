@@ -78,6 +78,13 @@ File_Name:tell_me_time.py </br>
 
 > consul intention create dashboard time_web
 
+## Access Service hosted on Raspi from MBP through Service Mesh
+
+> $>curl http://localhost:9001 </br> 
+  time is 1607635269.896242
+
+![svc](svc.png)
+
 
 ## Consul KV Store
 
@@ -151,12 +158,6 @@ PING time_web.service.consul (192.168.128.28): 56 data bytes  </br>
 --- time_web.service.consul ping statistics ---   </br> 
 2 packets transmitted, 1 packets received, 50.0% packet loss </br> 
 round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms </br> 
-
-#### Access Service hosted on Raspi from MBP through Service Mesh
-
-> $>curl http://localhost:9001
-> time is 1607635269.896242
-
 
 #### Leave Consul Cluster Gracefully
 
