@@ -129,23 +129,17 @@ consul.			0	IN	SOA	ns.consul. hostmaster.consul. 1607736748 3600 600 86400 0</br
 
 DNS might not resolve. Link to enable [DNS forwarding:] (https://learn.hashicorp.com/tutorials/consul/dns-forwarding)
 
-'''
 > ping time_web.service.consul 
-
-PING time_web.service.consul (192.168.128.28): 56 data bytes 
-
-64 bytes from 192.168.128.28: icmp_seq=0 ttl=64 time=6.138 ms
-
---- time_web.service.consul ping statistics --- 
-
-2 packets transmitted, 1 packets received, 50.0% packet loss
-
-round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms 
+> PING time_web.service.consul (192.168.128.28): 56 data bytes 
+> 64 bytes from 192.168.128.28: icmp_seq=0 ttl=64 time=6.138 ms
+> --- time_web.service.consul ping statistics --- 
+> 2 packets transmitted, 1 packets received, 50.0% packet loss
+> round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms 
 
 ## Access Service hosted on Raspi from MBP through Service Mesh
 
 > curl http://localhost:9001
-time is 1607635269.896242
+> time is 1607635269.896242
 
 ## Use Consul KV Store
 
