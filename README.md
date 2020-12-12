@@ -25,7 +25,7 @@ Credits : Thanks to [Consul tutorials](https://learn.hashicorp.com/consul) and t
 ## Windows
 
 #### Start up Consul Server
-> consul agent -dev -server -ui -bootstrap-expect 1 -bind 192.168.128.19 -node asgard -data-dir=<path> -config-dir=<path> </br> 
+> consul agent -dev -server -ui -bootstrap-expect 1 -bind 192.168.128.19 -node asgard -data-dir= path -config-dir= path </br> 
   
 config-dir was empty and gave a tmp path for data-dir. In data-dir consul will store its own data <br>
 
@@ -33,9 +33,10 @@ config-dir was empty and gave a tmp path for data-dir. In data-dir consul will s
 
 #### Start up Consul Client
 
-> consul agent  -node=c3 -bind=192.168.128.9 -data-dir=<path> -config-dir=<path> </br> 
+> consul agent  -node=c3 -bind=192.168.128.9 -data-dir= path -config-dir= path </br> 
   
-Config-dir loaded with a SVC definition with Sidecar Proxy configuration. File_Name:dboard.json </br> 
+Config-dir loaded with a SVC definition with Sidecar Proxy configuration. </br> 
+File_Name:dboard.json </br> 
 
 #### Join to Cluster
 
@@ -53,9 +54,10 @@ Config-dir loaded with a SVC definition with Sidecar Proxy configuration. File_N
 
 #### Start up Consul Client
 
-> consul agent  -node=c2 -bind=192.168.128.28 -data-dir=<path> -config-dir=<path> </br> 
+> consul agent  -node=c2 -bind=192.168.128.28 -data-dir= path -config-dir= path </br> 
   
-Config-dir loaded with a SVC definition with Sidecar Proxy configuration. File_Name:time_svc_web.json </br> 
+Config-dir loaded with a SVC definition with Sidecar Proxy configuration. </br> 
+File_Name:time_svc_web.json </br> 
 
 #### Join to Cluster
 
@@ -63,7 +65,8 @@ Config-dir loaded with a SVC definition with Sidecar Proxy configuration. File_N
 
 #### Sample UpStream Service
 
-A tiny pyton Flask app was written to return time. File_Name:tell_me_time.py </br> 
+A tiny python Flask app was written to return time. </br> 
+File_Name:tell_me_time.py </br> 
 
 #### Attach Sidecar Proxy
 
@@ -127,13 +130,17 @@ consul.			0	IN	SOA	ns.consul. hostmaster.consul. 1607736748 3600 600 86400 0</br
 DNS might not resolve. Link to enable [DNS forwarding:] (https://learn.hashicorp.com/tutorials/consul/dns-forwarding)
 
 '''
-> ping time_web.service.consul
-PING time_web.service.consul (192.168.128.28): 56 data bytes
+> ping time_web.service.consul 
+
+PING time_web.service.consul (192.168.128.28): 56 data bytes 
+
 64 bytes from 192.168.128.28: icmp_seq=0 ttl=64 time=6.138 ms
---- time_web.service.consul ping statistics ---
+
+--- time_web.service.consul ping statistics --- 
+
 2 packets transmitted, 1 packets received, 50.0% packet loss
-round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms
-'''
+
+round-trip min/avg/max/stddev = 6.138/6.138/6.138/0.000 ms 
 
 ## Access Service hosted on Raspi from MBP through Service Mesh
 
