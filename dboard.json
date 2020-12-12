@@ -1,0 +1,15 @@
+{
+  "service": {
+    "name": "dashboard",
+    "connect": {
+      "sidecar_service": {
+        "proxy": {
+      	  "upstreams": [{
+      	    "destination_name": "time_web",
+      	    "local_bind_port": 9001
+      	  }]
+      	}
+      }
+    }
+  }
+}
