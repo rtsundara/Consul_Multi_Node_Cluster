@@ -78,9 +78,12 @@ File_Name:tell_me_time.py </br>
 
 > consul intention create dashboard time_web
 
-#### Use Consul KV Store
 
-> consul kv put employee/employee1/name Jane </br> 
+## Consul KV Store
+
+Once cluster is up, we can access KV store using get/put from any node  </br> 
+
+> c$>onsul kv put employee/employee1/name Jane </br> 
 Success! Data written to: employee/employee1/name </br> 
 
 > $>consul kv get employee/employee1/name </br> 
