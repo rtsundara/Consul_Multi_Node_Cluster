@@ -4,12 +4,14 @@ Consul Multi Node service mesh using Macbook, Raspberry Pi and Windows Laptop
 I wanted to learn Consul cluster bringup, service mesh and KV store. Since we are stuck @ home, ended up brining up a Consul cluster with nodes scatterred in my home LAN/WLAN.
 
 Windows PC --> Consul Server </br>
-MBP --> Consul Client </br> 
-Raspi --> Consul Client </br> 
+MBP --> Consul Client . Hosted DownStream Service</br> 
+Raspi --> Consul Client Hosted UpStream Service</br> 
 
-Sidecar Proxy : Used Consul built-in
+Sidecar Proxy : Consul built-in
 
 ![topology](topology.png)
+
+#IP 
 
 Windows PC --> 192.168.128.19 </br>
 MBP --> 192.168.128.9 </br> 
@@ -37,6 +39,9 @@ Config-dir loaded with a SVC definition with Sidecar Proxy configuration. FileNa
 
 consul join 192.168.128.1
 
+#### Sample Downstream Service
+
+Used Curl 
 
 ## Raspi
 
@@ -49,7 +54,7 @@ Config-dir loaded with a SVC definition with Sidecar Proxy configuration. FileNa
 
 consul join 192.168.128.1
 
-#### Sample Service
+#### Sample UpStream Service
 
 A tiny pyton Flask app was written to return time. FileName:tell_me_time.py
 
