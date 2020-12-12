@@ -1,11 +1,11 @@
 # Consul_Multi_Node_Cluster
 Consul Multi Node Service Mesh using Macbook, Raspberry Pi and Windows Laptop
 
-I wanted to learn Consul cluster bringup, service mesh and KV store. Since we are stuck @ home, ended up brining up a Consul cluster with nodes scatterred in my home LAN/WLAN.
+I wanted to setup a Consul cluster with Service Mesh and KV store. Since we are stuck @ home, ended up bringing up a Consul cluster with nodes scatterred in my home LAN/WLAN.
 
 Windows PC --> Consul Server </br>
-MBP --> Consul Client 1. Hosted DownStream Service</br> 
-Raspi --> Consul Client 2. Hosted UpStream Service</br> 
+MBP --> Consul Client 1. Hosting DownStream Service</br> 
+Raspi --> Consul Client 2. Hostin UpStream Service</br> 
 
 Sidecar Proxy : Consul built-in </br> 
 Consul Version: Consul v1.9.0 </br> 
