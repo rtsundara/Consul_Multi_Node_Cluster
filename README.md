@@ -81,6 +81,10 @@ File_Name:tell_me_time.py </br>
 
 Consul runs DNS in port 8600 and UI in Port 8500 </br> 
 
+## Web UI
+
+![final](final.png)
+
 ## consul members
 
 > $> consul members </br>
@@ -154,6 +158,3 @@ Jane </br>
 
 > consul leave</br> 
 Graceful leave complete </br> 
-
-![final](final.png)
-
